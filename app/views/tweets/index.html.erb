@@ -1,0 +1,18 @@
+<%= link_to 'New Tweet', [:new, :tweet]  %>
+
+<table>
+	<tr>
+		<th>Sr. No</th>
+		<th>Content</th>
+	</tr>
+	<% @tweets.each_with_index do |tweet, index| %>
+		<tr>
+			<td>
+				<%= index + 1%>
+			</td>
+			<td>
+				<%= tweet.content %>
+			</td>
+		</tr>
+	<% end %>
+</table>
