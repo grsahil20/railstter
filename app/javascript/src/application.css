@@ -5,4 +5,5 @@
 /* Add any custom CSS here */
 @import "tailwindcss/utilities";
 
+@import "./layout";
 @import "./buttons";
