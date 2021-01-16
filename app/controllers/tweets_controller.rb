@@ -14,6 +14,7 @@ class TweetsController < ApplicationController
   	  flash[:notice] = 'Tweet has been created'
   	  redirect_to [:tweets]
     else
+      flash.now[:danger] = "Tweet has not been created"
       render "new"
     end
   end

@@ -5,7 +5,8 @@
 /* Add any custom CSS here */
 @import "tailwindcss/utilities";
 
-@import "./layout";
-@import "./buttons";
-@import "./form_error_messages";
-@import "./flash_messages";
+
+.error_explanation{
+	@apply bg-red-100 border-red-300 text-red-700;
+}
+
