@@ -1,0 +1,46 @@
+/* app/javascript/stylesheets/application.scss */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Add any custom CSS here */
+@import "tailwindcss/utilities";
+
+.btn {
+	@apply rounded px-2 py-2 text-white;
+}
+
+.btn-red{
+	@apply bg-red-500;
+}
+
+.btn-red:hover{
+	@apply bg-red-600;
+}
+
+
+.btn-green{
+	@apply bg-green-500;
+}
+
+.btn-green:hover{
+	@apply bg-green-600;
+}
+
+
+.btn-blue{
+	@apply bg-blue-500;
+}
+
+.btn-blue:hover{
+	@apply bg-blue-600;
+}
+
+
+.btn-blue{
+	@apply bg-blue-500;
+}
+
+.btn-blue:hover{
+	@apply bg-blue-600;
+}
+
