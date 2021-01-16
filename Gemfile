@@ -64,6 +64,7 @@ group :development do
   gem "binding_of_caller"
   gem 'annotate'
   gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec', require: false
   gem 'guard-cucumber', '~> 2.1.2'
 end
