@@ -1,0 +1,18 @@
+.user
+	.profile
+		.photo = image_tag("https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg", size: "80x80")
+		.name Sahil Grover
+	.details
+		.following
+			.count_number 180
+			.count_caption Followers
+		.followers
+			.count_number 340
+			.count_caption Following
+
+ul.navigation-links
+	li = link_to 'Home', '/'
+	li = link_to 'Connect', '/'
+	li = link_to 'Discover', '/'
+	li = link_to 'Profile', '/'
+	li = link_to 'Stats', '/'

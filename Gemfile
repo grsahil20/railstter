@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -44,7 +45,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.2'
   gem 'factory_bot'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-  gem "byebug"
 end
 
 group :test do
@@ -63,6 +63,10 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'annotate'
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-rspec', require: false
+  gem 'guard-cucumber', '~> 2.1.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

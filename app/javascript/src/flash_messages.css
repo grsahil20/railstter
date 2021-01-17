@@ -1,0 +1,42 @@
+/* app/javascript/stylesheets/application.scss */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Add any custom CSS here */
+@import "tailwindcss/utilities";
+
+
+.flash-alert{
+	@apply px-4 py-2;
+}
+
+
+.alert-info{
+	@apply bg-blue-200 text-blue-500 border-blue-500;
+}
+.alert-info .close-flash{
+	@apply bg-blue-200 text-blue-500 border-blue-500;
+}
+
+.alert-success{
+	@apply bg-green-200 text-green-500 border-green-500;
+}
+.alert-success .close-flash{
+	@apply bg-green-200 text-green-500 border-green-500;
+}
+
+
+.alert-error{
+	@apply bg-red-200 text-red-500 border-red-500;
+}
+.alert-error .close-flash{
+	@apply bg-red-200 text-red-500 border-red-500;
+}
+
+
+.alert-alert{
+	@apply bg-yellow-200 text-yellow-500 border-yellow-500;
+}
+.alert-alert .close-flash{
+	@apply bg-yellow-200 text-yellow-500 border-yellow-500;
+}

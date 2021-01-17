@@ -9,9 +9,14 @@ class TweetsController < ApplicationController
   end
 
   def create
-  	Tweet.create(tweet_params)
-  	flash[:notice] = 'Tweet has been created'
-  	redirect_to [:tweets]
+  	@tweet = Tweet.new(tweet_params)
+    if @tweet.save
+  	  flash[:notice] = 'Tweet has been created'
+  	  redirect_to [:tweets]
+    else
+      flash.now[:danger] = "Tweet has not been created"
+      render "new"
+    end
   end
 
   private
