@@ -8,7 +8,7 @@ RSpec.feature :create_tweet do
 		click_link "New Tweet"
 		fill_in "tweet_content", with: content
 		click_button "Create Tweet"
-		expect(page).to have_content("Tweet has been created")
+		expect(page).to have_content(TweetsController::RECORD_CREATED)
 		expect(page).to have_content(content)
 		expect(page.current_path).to eq('/tweets')
 	end
@@ -18,7 +18,7 @@ RSpec.feature :create_tweet do
 		click_link "New Tweet"
 		fill_in "tweet_content", with: ""
 		click_button "Create Tweet"
-		# expect(page).to have_content("Tweet has been created")
+		expect(page).to have_content(TweetsController::RECORD_NOT_CREATED)
 		expect(page).to have_content("Content can't be blank")
 	end
 
