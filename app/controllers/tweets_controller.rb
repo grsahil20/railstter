@@ -1,5 +1,7 @@
 class TweetsController < ApplicationController
 
+
+  RECORD_NOT_FOUND =  'Tweet not found'
   before_action :set_tweet, only: [:show]
 
   def index
@@ -25,6 +27,14 @@ class TweetsController < ApplicationController
   end
 
 
+  protected
+
+  def resource_not_found
+    flash[:alert] = RECORD_NOT_FOUND
+    redirect_to root_path
+  end
+
+
   private
 
   def set_tweet
@@ -34,6 +44,5 @@ class TweetsController < ApplicationController
   def tweet_params
   	params.require(:tweet).permit(:content)
   end
-
 
 end
