@@ -12,5 +12,6 @@
 				td.actions
 					= link_to 'Show', [tweet], id: "show"
 					= link_to 'Edit', [:edit, tweet], id: "edit"
+					= link_to 'Destroy', [tweet], id: "destroy", method: :delete
 - else
 	h1#no-tweets No Tweets
