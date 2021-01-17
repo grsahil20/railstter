@@ -24,5 +24,3 @@
 .btn-yellow, .btn-alert{
 	@apply bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500;
 }
-
-
