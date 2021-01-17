@@ -2,7 +2,15 @@ class TweetsController < ApplicationController
 
 
   RECORD_NOT_FOUND =  'Tweet not found'
-  before_action :set_tweet, only: [:show]
+
+  RECORD_CREATED =  'Tweet has been created'
+  RECORD_UPDATED =  'Tweet has been updated'
+
+  RECORD_NOT_CREATED =  "Tweet has not been created"
+  RECORD_NOT_UPDATED =   "Tweet can not been updated"
+
+
+  before_action :set_tweet, only: [:show, :edit, :update]
 
   def index
   	@tweets = Tweet.all
@@ -15,10 +23,10 @@ class TweetsController < ApplicationController
   def create
   	@tweet = Tweet.new(tweet_params)
     if @tweet.save
-  	  flash[:notice] = 'Tweet has been created'
+  	  flash[:notice] = RECORD_CREATED
   	  redirect_to [:tweets]
     else
-      flash.now[:danger] = "Tweet has not been created"
+      flash.now[:danger] = RECORD_NOT_CREATED
       render "new"
     end
   end
@@ -26,6 +34,18 @@ class TweetsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @tweet.update(tweet_params)
+      flash[:notice] = RECORD_UPDATED
+      redirect_to @tweet
+    else
+      flash.now[:danger] = RECORD_NOT_UPDATED
+      render "new"
+    end
+  end
 
   protected
 
@@ -33,7 +53,6 @@ class TweetsController < ApplicationController
     flash[:alert] = RECORD_NOT_FOUND
     redirect_to root_path
   end
-
 
   private
 
