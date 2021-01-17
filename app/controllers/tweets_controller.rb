@@ -5,12 +5,13 @@ class TweetsController < ApplicationController
 
   RECORD_CREATED =  'Tweet has been created'
   RECORD_UPDATED =  'Tweet has been updated'
+  RECORD_DELETED =  'Tweet has been deleted'
 
   RECORD_NOT_CREATED =  "Tweet has not been created"
   RECORD_NOT_UPDATED =   "Tweet can not been updated"
 
 
-  before_action :set_tweet, only: [:show, :edit, :update]
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
   def index
   	@tweets = Tweet.all
@@ -45,6 +46,12 @@ class TweetsController < ApplicationController
       flash.now[:danger] = RECORD_NOT_UPDATED
       render "new"
     end
+  end
+
+  def destroy
+    @tweet.destroy
+    flash[:notice] = RECORD_DELETED
+    redirect_to :tweets
   end
 
   protected

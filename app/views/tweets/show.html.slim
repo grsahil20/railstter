@@ -1,2 +1,4 @@
 tweet
 	= @tweet.content
+	= link_to 'Edit', [:edit, @tweet], id: "edit"
+	= link_to 'Destroy', [@tweet], id: "destroy", method: :delete
