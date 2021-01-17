@@ -36,6 +36,8 @@ gem 'webpacker'
 gem 'simple_form'
 gem 'slim'
 
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
