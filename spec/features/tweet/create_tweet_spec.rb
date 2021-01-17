@@ -3,12 +3,13 @@ require "rails_helper"
 RSpec.feature :create_tweet do
 
 	scenario "A user creates a new tweet" do
+		content = Faker::Lorem.sentence
 		visit "/"
 		click_link "New Tweet"
-		fill_in "tweet_content", with: "Test text for tweet"
+		fill_in "tweet_content", with: content
 		click_button "Create Tweet"
 		expect(page).to have_content("Tweet has been created")
-		expect(page).to have_content("Test text for tweet")
+		expect(page).to have_content(content)
 		expect(page.current_path).to eq('/tweets')
 	end
 
