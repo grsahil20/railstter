@@ -52,7 +52,7 @@ GEM
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     arel (8.0.0)
-    autoprefixer-rails (6.3.7)
+    autoprefixer-rails (10.2.0.0)
       execjs
     better_errors (2.9.1)
       coderay (>= 1.0.0)
@@ -294,7 +294,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  autoprefixer-rails (~> 6.3.7)
+  autoprefixer-rails
   better_errors
   binding_of_caller
   bullet
@@ -324,6 +324,9 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   webpacker
+
+RUBY VERSION
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.2.5
