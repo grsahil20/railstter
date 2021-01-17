@@ -1,18 +1,22 @@
 <%= link_to 'New Tweet', [:new, :tweet]  %>
 
-<table>
-	<tr>
-		<th>Sr. No</th>
-		<th>Content</th>
-	</tr>
-	<% @tweets.each_with_index do |tweet, index| %>
+<% if @tweets.present? %>
+	<table>
 		<tr>
-			<td>
-				<%= index + 1%>
-			</td>
-			<td>
-				<%= tweet.content %>
-			</td>
+			<th>Sr. No</th>
+			<th>Content</th>
 		</tr>
-	<% end %>
-</table>
+		<% @tweets.each_with_index do |tweet, index| %>
+			<tr>
+				<td>
+					<%= index + 1 %>
+				</td>
+				<td>
+					<%= link_to tweet.content, tweet %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+<% else %>
+	<h2> No Tweets  <h2>
+<% end %>
