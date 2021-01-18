@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -49,6 +50,7 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
   gem 'factory_bot_rails'
   gem 'factory_trace'
+  gem 'parallel_tests'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
