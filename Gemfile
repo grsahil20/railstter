@@ -70,6 +70,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'annotate'
+  gem 'rufo'
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec', require: false
