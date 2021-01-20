@@ -3,6 +3,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
   SIGNUP_SUCCESSFUL = 'You have signed up successfully'
+  SIGNIN_SUCCESSFUL = 'Signed in successfully'
+
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

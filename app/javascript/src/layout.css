@@ -12,7 +12,7 @@ body {
 }
 
 .body-container{
-	@apply px-0 py-0 grid grid-cols-6 h-full;
+	@apply px-0 py-0 grid grid-cols-12 h-full;
 }
 
 .sidebar{
@@ -20,11 +20,11 @@ body {
 }
 
 .main {
-	@apply col-span-4  h-full;
+	@apply col-span-10 h-full;
 }
 
 .main .header{
-	@apply bg-indigo-400 text-white;
+	@apply bg-indigo-400 text-white flex px-2 py-2;
 }
 .main .content{
 	@apply bg-gray-100 text-black;

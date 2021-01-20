@@ -1,8 +1,7 @@
 .header
 	.logo Railstter
-	.nav
-	ul.navigation-links
-		li = link_to 'Compose', [:new, :tweet]
-		li = link_to 'Search', '/'
-		li = link_to 'Message', '/'
-		li = link_to 'Settings', '/'
+	ul.navigation-links.flex
+		li = link_to 'Compose', [:new, :tweet], class: 'btn btn-danger'
+		li = link_to 'Search', '/', class: 'btn btn-danger'
+		li = link_to 'Message', '/', class: 'btn btn-danger'
+		li = link_to 'Settings', '/', class: 'btn btn-danger'
