@@ -1,35 +1,46 @@
 require "rails_helper"
 
 RSpec.feature :signin_user do
+  before do
+    @user = create(:user)
+      visit "/users/sign_in"
+  end
 
-	scenario "A user with valid credentials logs in" do
-		user = create(:user)
-		visit "/users/sign_in"
+  context "A user with valid credentials succesfully logs in" do
+    scenario "with email" do
+      fill_in "user_login", with: @user.email
+      fill_in "user_password", with: "password"
+      click_button "Sign In"
 
-		password = Faker::Internet.password(min_length: 8)
-		fill_in "user_login", with: user.email
-		fill_in "user_password", with: "password"
-		click_button "Sign In"
+      expect(page).to have_content(Users::SessionsController::SIGNIN_SUCCESSFUL)
+      expect(page.current_path).to eq("/")
+    end
+    scenario "with username" do
+      fill_in "user_login", with: @user.username
+      fill_in "user_password", with: "password"
+      click_button "Sign In"
 
-		expect(page).to have_content(Users::RegistrationsController::SIGNIN_SUCCESSFUL)
-		expect(page.current_path).to eq('/')
+      expect(page).to have_content(Users::SessionsController::SIGNIN_SUCCESSFUL)
+      expect(page.current_path).to eq("/")
+    end
 	end
 
-	# scenario "A user fails to signin with invalid credentials" do
-	# 	User.destroy_all
+  context "A user with invalid credentials not able to logs in" do
+    scenario "with email" do
+      fill_in "user_login", with: @user.email
+      fill_in "user_password", with: "invalid_password"
+      click_button "Sign In"
 
-	# 	visit "/users/sign_up"
-	# 	password = Faker::Internet.password(min_length: 8)
-	# 	fill_in "user_email", with: ""
-	# 	fill_in "user_username", with: Faker::Internet.username(separators: %w())
-	# 	fill_in "user_full_name", with: Faker::Name.name
-	# 	fill_in "user_password", with: password
-	# 	fill_in "user_password_confirmation", with: password
-	# 	click_button "Sign Up"
+      expect(page).to have_content(Users::SessionsController::SIGNIN_FAILED)
+      expect(page.current_path).to eq("/users/sign_in")
+    end
+    scenario "with username" do
+      fill_in "user_login", with: @user.username
+      fill_in "user_password", with: "invalid_password"
+      click_button "Sign In"
 
-	# 	expect(page).to have_content("Please review the problems below:")
-	# 	expect(page.current_path).to eq('/users')
-	# 	expect(User.count).to eq(0)
-	# end
-
+      expect(page).to have_content(Users::SessionsController::SIGNIN_FAILED)
+      expect(page.current_path).to eq("/users/sign_in")
+    end
+  end
 end
