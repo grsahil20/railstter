@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -16,6 +17,7 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'autoprefixer-rails'
+gem 'jquery-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -45,10 +47,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.2'
+  gem 'fuubar'
   gem 'shoulda'
   gem 'shoulda-matchers', require: false
   gem 'factory_bot_rails'
   gem 'factory_trace'
+  gem 'parallel_tests'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
@@ -68,6 +72,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'annotate'
+  gem 'rufo'
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'guard-rspec', require: false
