@@ -22,8 +22,8 @@ sidebar.sidebar
 			li = link_to 'Profile', '/'
 			li = link_to 'Stats', '/'
 			- if current_user.present?
-				li = link_to "Sign out", destroy_user_session_path, method: :delete
+				li = link_to "Sign Out", destroy_user_session_path, method: :delete
 			- else
-				li = link_to "Log in", new_user_session_path
+				li = link_to "Sign In", new_user_session_path
 				li = link_to "Sign up", new_user_registration_path
 
