@@ -13,6 +13,8 @@ class User < ApplicationRecord
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validate :validate_username
 
+  has_many :tweets
+
   def login
     @login || self.username || self.email
   end

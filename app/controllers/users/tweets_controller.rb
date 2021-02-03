@@ -1,5 +1,5 @@
 
-class TweetsController < ApplicationController
+class Users::TweetsController < ApplicationController
 
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 

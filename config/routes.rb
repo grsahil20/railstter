@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   }
 
 	resources :tweets
+
+  resources :users, only: [] do
+    resources :tweets, controller: 'users/tweets'
+  end
 end

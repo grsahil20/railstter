@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+  tweets:
+    not_found: 'Tweet not found'
+    create:
+      success: 'Tweet has been created'
+      fail: 'Tweet can not been created'
+    update:
+      success: 'Tweet has been updated'
+      fail: 'Tweet can not been updated'
+    destroy:
+      success: 'Tweet has been deleted'
+      fail: 'Tweet can not been deleted'

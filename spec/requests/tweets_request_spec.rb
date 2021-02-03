@@ -29,7 +29,7 @@ RSpec.describe "Tweets", type: :request do
         expect(response).to redirect_to('/')
         follow_redirect!
 
-        expect(flash[:alert]).to eq(TweetsController::RECORD_NOT_FOUND)
+        expect(flash[:alert]).to eq('Tweet not found')
     	end
  		end
  	end
