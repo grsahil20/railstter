@@ -5,9 +5,7 @@
 /* Add any custom CSS here */
 @import "tailwindcss/utilities";
 
-@import "./layout";
-@import "./buttons";
-@import "./form_error_messages";
-@import "./flash_messages";
-@import "./header";
-@import "./sidebar";
+
+.sidebar {
+  @apply flex justify-between;
+}

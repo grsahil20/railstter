@@ -9,10 +9,8 @@ html
 
     = javascript_pack_tag 'application'
     = stylesheet_pack_tag 'application'
-  body
-    .body-container
-      .sidebar
-        = render partial: "layouts/sidebar"
+  body.body
+      = render partial: "layouts/sidebar"
       .main
         = render partial: "layouts/header"
         = render partial: "layouts/flash_messages"
