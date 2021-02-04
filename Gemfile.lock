@@ -186,6 +186,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pagy (3.10.0)
     parallel (1.20.1)
     parallel_tests (3.4.0)
       parallel
@@ -344,6 +345,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  pagy
   parallel_tests
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)

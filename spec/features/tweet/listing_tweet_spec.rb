@@ -17,4 +17,9 @@ RSpec.feature :listing_tweets do
 		visit "/"
 		expect(page).to have_content('No Tweets')
 	end
+
+	scenario "List existing tweets for a user" do
+		visit "/"
+		expect(page).to have_content('No Tweets')
+	end
 end

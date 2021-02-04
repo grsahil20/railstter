@@ -22,6 +22,7 @@ sidebar.sidebar
 			li = link_to 'Profile', '/'
 			li = link_to 'Stats', '/'
 			- if current_user.present?
+				li = link_to "My Tweets", [current_user, :tweets]
 				li = link_to "Sign Out", destroy_user_session_path, method: :delete
 			- else
 				li = link_to "Sign In", new_user_session_path

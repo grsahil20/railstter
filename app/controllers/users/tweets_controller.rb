@@ -1,18 +1,22 @@
+class Users::TweetsController < TweetsController
 
-class Users::TweetsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index]
 
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :set_user
+  before_action :tweets_scope
+  before_action :set_tweet, only: %i[show edit update destroy]
 
-  def index
-  	@tweets = Tweet.all
-  end
+  # def index
+  # 	@tweets = tweets_scope
+  # end
 
   def new
-	 	@tweet = Tweet.new
+	 	@tweet = tweets_scope.new
+    render "users/tweets/new"
   end
 
   def create
-  	@tweet = Tweet.new(tweet_params)
+  	@tweet = tweets_scope.new(tweet_params)
     if @tweet.save
   	  flash[:notice] = I18n.t('tweets.create.success')
   	  redirect_to [:tweets]
@@ -22,8 +26,8 @@ class Users::TweetsController < ApplicationController
     end
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def edit
   end
@@ -56,8 +60,16 @@ class Users::TweetsController < ApplicationController
 
   private
 
+  def set_user
+    @user ||= User.find(params[:user_id])
+  end
+
+  def tweets_scope
+    @tweets_scope ||= set_user.tweets
+  end
+
   def set_tweet
-    @tweet = Tweet.find params[:id]
+    @tweet = tweets_scope.find(params[:id])
   end
 
   def tweet_params

@@ -1,50 +1,14 @@
-
 class TweetsController < ApplicationController
 
-  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :tweets_scope
+  before_action :set_tweet, only: %i[show]
 
   def index
-  	@tweets = Tweet.all
+  	@tweets = tweets_scope
   end
 
-  def new
-	 	@tweet = Tweet.new
-  end
-
-  def create
-  	@tweet = Tweet.new(tweet_params)
-    if @tweet.save
-  	  flash[:notice] = I18n.t('tweets.create.success')
-  	  redirect_to [:tweets]
-    else
-      flash.now[:danger] =  I18n.t('tweets.create.fail')
-      render "new"
-    end
-  end
 
   def show
-  end
-
-  def edit
-  end
-
-  def update
-    if @tweet.update(tweet_params)
-      flash[:notice] = I18n.t('tweets.update.success')
-      redirect_to @tweet
-    else
-      flash.now[:danger] = I18n.t('tweets.update.fail')
-      render "new"
-    end
-  end
-
-  def destroy
-    if @tweet.destroy
-      flash[:notice] = I18n.t('tweets.destroy.success')
-    else
-      flash.now[:danger] = I18n.t('tweets.destroy.fail')
-    end
-    redirect_to :tweets
   end
 
   protected
@@ -55,6 +19,10 @@ class TweetsController < ApplicationController
   end
 
   private
+
+  def tweets_scope
+    @tweets_scope ||= Tweet.all
+  end
 
   def set_tweet
     @tweet = Tweet.find params[:id]

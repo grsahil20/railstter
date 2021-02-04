@@ -1,4 +1,5 @@
-tweet
+div.tweet
 	= @tweet.content
-	= link_to 'Edit', [:edit, @tweet], id: "edit"
-	= link_to 'Destroy', [@tweet], id: "destroy", method: :delete
+	- if @tweet.user == current_user
+		= link_to 'Edit', [:edit, current_user, @tweet], id: "edit"
+		= link_to 'Destroy', [current_user, @tweet], id: "destroy", method: :delete

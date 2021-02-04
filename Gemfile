@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'webpacker'
 gem 'simple_form'
 gem 'slim'
+gem 'pagy'
 
 gem 'devise'
 
