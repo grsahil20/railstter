@@ -4,7 +4,11 @@ RSpec.describe "Tweets", type: :request do
 
   describe "GET /index" do
     it "returns http success" do
-      get "/tweets"
+			tweets = create_list(:tweet, 2)
+			get "/tweets"
+			tweets.each do |tweet|
+				expect(response.body).to include(tweet.content)
+			end
       expect(response).to have_http_status(:success)
     end
   end
@@ -17,8 +21,10 @@ RSpec.describe "Tweets", type: :request do
  		context "with existing tweet" do
  			before {  get "/tweets/#{@tweet.id}" }
 
-	    it "returns http success" do
+			it "returns http success" do
+				expect(response.body).to include(@tweet.content)
   	    expect(response).to have_http_status(:success)
+				# expect(response.path).to eq("/tweets/#{@tweet.id}")
     	end
  		end
 
