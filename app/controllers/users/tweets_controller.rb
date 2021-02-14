@@ -41,6 +41,7 @@ class Users::TweetsController < TweetsController
   end
 
   def update
+    p @tweet
     if @tweet.update(tweet_params)
       flash[:notice] = I18n.t('tweets.update.success')
       redirect_to @tweet
