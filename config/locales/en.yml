@@ -31,6 +31,7 @@
 
 en:
   hello: "Hello world"
+  unauthorized_access: "Unauthorized access"
   tweets:
     not_found: 'Tweet not found'
     create:

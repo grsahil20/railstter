@@ -1,9 +1,11 @@
 class Users::TweetsController < TweetsController
 
-  before_action :authenticate_user!, except: %i[index]
 
-  before_action :set_user
-  before_action :tweets_scope
+  before_action :set_user,  only: %i[show index]
+
+  before_action :authenticate_user!, except: %i[show index]
+  before_action :authenticate_user_access!,  except: %i[show index]
+
   before_action :set_tweet, only: %i[show edit update destroy]
 
   # def index
@@ -16,10 +18,10 @@ class Users::TweetsController < TweetsController
   end
 
   def create
-  	@tweet = tweets_scope.new(tweet_params)
+  	@tweet = @user.tweets.new(tweet_params)
     if @tweet.save
   	  flash[:notice] = I18n.t('tweets.create.success')
-  	  redirect_to [:tweets]
+  	  redirect_to [current_user, :tweets]
     else
       flash.now[:danger] =  I18n.t('tweets.create.fail')
       render "new"
@@ -30,6 +32,12 @@ class Users::TweetsController < TweetsController
   # end
 
   def edit
+  end
+
+  def validate_user_access
+    return if set_user == current_user
+    flash[:notice] = I18n.t('unauthorized_access')
+    redirect_to root_path and return
   end
 
   def update
@@ -64,12 +72,14 @@ class Users::TweetsController < TweetsController
     @user ||= User.find(params[:user_id])
   end
 
-  def tweets_scope
-    @tweets_scope ||= set_user.tweets
+  def authenticate_user_access!
+    return if set_user == current_user
+    flash[:danger] =I18n.t('unauthorized_access')
+    redirect_to root_path and return
   end
 
   def set_tweet
-    @tweet = tweets_scope.find(params[:id])
+    @tweet = set_user.tweets.find(params[:id])
   end
 
   def tweet_params

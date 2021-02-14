@@ -15,7 +15,7 @@ RSpec.feature :create_tweet do
 		click_button "Create Tweet"
 		expect(page).to have_content('Tweet has been created')
 		expect(page).to have_content(content)
-		expect(page.current_path).to eq('/tweets')
+		expect(page.current_path).to eq("/users/#{ @user.id }/tweets")
 	end
 
 	scenario "A user fails to create a new tweet" do

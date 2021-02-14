@@ -7,7 +7,6 @@ class TweetsController < ApplicationController
   	@tweets = tweets_scope
   end
 
-
   def show
   end
 
