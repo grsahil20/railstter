@@ -14,6 +14,7 @@ class User < ApplicationRecord
   validate :validate_username
 
   has_many :tweets
+  has_many :comments
 
   def login
     @login || self.username || self.email

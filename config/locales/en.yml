@@ -43,3 +43,13 @@ en:
     destroy:
       success: 'Tweet has been deleted'
       fail: 'Tweet can not been deleted'
+  comments:
+    create:
+      success: 'Comment has been created'
+      fail: 'Comment can not been created'
+    update:
+      success: 'Comment has been updated'
+      fail: 'Comment can not been updated'
+    destroy:
+      success: 'Comment has been deleted'
+      fail: 'Comment can not been deleted'

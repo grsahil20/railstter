@@ -1,5 +1,12 @@
 div.tweet
-	= @tweet.content
+	h1 = @tweet.content
 	- if @tweet.user == current_user
 		= link_to 'Edit', [:edit, current_user, @tweet], id: "edit"
 		= link_to 'Destroy', [current_user, @tweet], id: "destroy", method: :delete
+
+- if user_signed_in?
+	= render 'comments/form', tweet: @tweet, comment: @comment
+
+- if @comments.present?
+	div @comments
+	= render  'comments/table', comments: @comments

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
-  def resource_not_found
+  # def resource_not_found
 
-  end
+  # end
 end
