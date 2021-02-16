@@ -13,5 +13,6 @@ div.index_with_table
 						= link_to 'Show', [tweet], id: "show"
 						= link_to 'Edit', [:edit, user, tweet], id: "edit"
 						= link_to 'Destroy', [user, tweet], id: "destroy", method: :delete
+		== pagy_nav tweet_pages
 	- else
 		h1#no-tweets No Tweets

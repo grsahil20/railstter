@@ -10,6 +10,6 @@ header {
   @apply flex flex-wrap justify-between;
 }
 
-header logo {
-  @apply place-content-center;
+header .logo {
+  @apply place-content-center align-middle;
 }

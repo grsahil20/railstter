@@ -4,12 +4,12 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[show]
 
   def index
-  	@tweets = tweets_scope
+  	@tweet_pages, @tweets = pagy(tweets_scope)
   end
 
   def show
-    @comment = @tweet.comments.new
-    @comments = @tweet.comments
+  	@comment_pages, @comments = pagy(@tweet.comments)
+    @comment = Comment.new(tweet: @tweet)
   end
 
   protected
@@ -30,7 +30,7 @@ class TweetsController < ApplicationController
   end
 
   def tweet_params
-  	params.require(:tweet).permit(:content)
+    params.require(:tweet).permit(:content)
   end
 
 end

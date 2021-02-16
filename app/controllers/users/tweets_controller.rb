@@ -82,6 +82,10 @@ class Users::TweetsController < TweetsController
     @tweet = set_user.tweets.find(params[:id])
   end
 
+  def tweets_scope
+    User.find(params[:user_id]).tweets
+  end
+
   def tweet_params
   	params.require(:tweet).permit(:content)
   end

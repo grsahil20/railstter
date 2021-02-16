@@ -14,7 +14,6 @@ RSpec.feature :signin_user do
 
       expect(page).to have_content("Signed in successfully")
       expect(page).to have_content(@user.full_name)
-      expect(page).to have_content(@user.email)
       expect(page).to have_content(@user.username)
       expect(page.current_path).to eq("/")
     end
@@ -25,7 +24,6 @@ RSpec.feature :signin_user do
 
       expect(page).to have_content("Signed in successfully")
       expect(page).to have_content(@user.full_name)
-      expect(page).to have_content(@user.email)
       expect(page).to have_content(@user.username)
       expect(page.current_path).to eq("/")
     end
@@ -34,7 +32,6 @@ RSpec.feature :signin_user do
       visit("/")
 
       expect(page).to have_content(@user.full_name)
-      expect(page).to have_content(@user.email)
       expect(page).to have_content(@user.username)
     end
   end

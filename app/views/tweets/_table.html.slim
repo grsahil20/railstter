@@ -9,5 +9,7 @@ div.index_with_table
 				tr.tweets_row id="tweet_#{tweet.id}"
 					td = index + 1
 					td = link_to tweet.content, tweet
+		== pagy_nav tweet_pages
 	- else
 		h1#no-tweets No Tweets
+

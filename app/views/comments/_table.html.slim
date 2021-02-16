@@ -6,7 +6,8 @@ div.index_with_table
 				th Content
 			- comments.each_with_index do |comment, index|
 				tr.comments_row id="comment_#{comment.id}"
-					td = index + 1
+					td = comment.id
 					td = comment.content
+		== pagy_nav comment_pages
 	- else
 		h1#no-comments No comments
