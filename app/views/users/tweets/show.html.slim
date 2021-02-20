@@ -3,3 +3,11 @@ div.tweet
 	- if current_user == @tweet.user
 		= link_to 'Edit', [:edit, @tweet.user, @tweet], id: "edit"
 		= link_to 'Destroy', [current_user, @tweet], id: "destroy", method: :delete
+
+- if user_signed_in?
+	.well
+		= render 'comments/form', tweet: @tweet, comment: @comment
+
+- if @comments.present?
+	.well
+		= render  'comments/list', comment_pages: @comment_pages, comments: @comments

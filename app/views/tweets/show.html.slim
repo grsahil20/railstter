@@ -1,12 +1,14 @@
-div.tweet
-	h1 = @tweet.content
-	- if @tweet.user == current_user
-		= link_to 'Edit', [:edit, current_user, @tweet], id: "edit"
-		= link_to 'Destroy', [current_user, @tweet], id: "destroy", method: :delete
+.well
+	div.tweet
+		h1 = @tweet.content
+		- if @tweet.user == current_user
+			= link_to 'Edit', [:edit, current_user, @tweet], class: 'btn-info edit', id: "edit"
+			= link_to 'Destroy', [current_user, @tweet], id: "destroy", class: 'btn-danger destroy', method: :delete
 
 - if user_signed_in?
-	= render 'comments/form', tweet: @tweet, comment: @comment
+	.well
+		= render 'comments/form', tweet: @tweet, comment: @comment
 
 - if @comments.present?
-	div @comments
-	= render  'comments/table', comment_pages: @comment_pages, comments: @comments
+	.well#comments
+		= render  'comments/list', comment_pages: @comment_pages, comments: @comments

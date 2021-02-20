@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
   end
 
   def show
-  	@comment_pages, @comments = pagy(@tweet.comments)
+  	@comment_pages, @comments = pagy(@tweet.comments.includes(:user))
     @comment = Comment.new(tweet: @tweet)
   end
 

@@ -7,8 +7,10 @@
 
 @import "./layout";
 @import "./buttons";
+@import "./comment";
 @import "./form_error_messages";
 @import "./flash_messages";
 @import "./pagy";
 @import "./header";
 @import "./sidebar";
+@import "./well";

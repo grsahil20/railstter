@@ -7,8 +7,9 @@ class Tweets::CommentsController < TweetsController
   	@comment = @tweet.comments.new(comment_params)
 
     if @comment.save
-  	  flash[:notice] = I18n.t('comments.create.success')
-  	  redirect_to @tweet
+      flash[:notice] = I18n.t('comments.create.success')
+      # redirect_to @tweet
+      ActionCable.server.broadcast "comments", render(partial: 'comments/comment', object: @comment )
     else
       flash.now[:danger] =  I18n.t('comments.create.fail')
       render "tweets/show"
@@ -29,7 +30,7 @@ class Tweets::CommentsController < TweetsController
   end
 
   def comment_params
-  	params.require(:comment).permit(:content).to_h.merge(user: current_user)
+    params.require(:comment).permit(:content).to_h.merge(user: current_user)
   end
 
 end
