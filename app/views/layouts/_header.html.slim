@@ -2,7 +2,8 @@ header.header
 	.logo Railstter
 	navbar.navbar
 		ul.navigation-links.header.flex.flex-wrap.content-between.flex.space-x-4
-			li.mr-4 = link_to 'Compose', [:new, :tweet], class: 'btn btn-danger'
+			li.mr-4 = link_to 'Compose', [:new, current_user, :tweet], class: 'btn btn-danger' if current_user
 			li.mr-4 = link_to 'Search', '/', class: 'btn btn-danger'
-			li.mr-4 = link_to 'Message', '/', class: 'btn btn-danger'
 			li.mr-4 = link_to 'Settings', '/', class: 'btn btn-danger'
+			- if current_user.present?
+				li.mr-4 = link_to 'New Tweet', [:new, current_user, :tweet], class: 'btn btn-danger'

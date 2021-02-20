@@ -5,22 +5,22 @@
 /* Add any custom CSS here */
 @import "tailwindcss/utilities";
 
-.btn {
+.btn-base {
 	@apply inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2
 }
 
-.btn-red, .btn-danger{
-	@apply bg-red-600 hover:bg-red-700 focus:ring-red-500;
+.btn-red, .btn-danger, .btn-error {
+	@apply btn-base bg-red-600 hover:bg-red-700 focus:ring-red-500;
 }
 
-.btn-green, .btn-success{
-	@apply bg-green-600 hover:bg-green-700 focus:ring-green-500;
+.btn-green, .btn-success {
+	@apply btn-base bg-green-600 hover:bg-green-700 focus:ring-green-500;
 }
 
-.btn-blue, .btn-info{
-	@apply bg-blue-600 hover:bg-blue-700 focus:ring-blue-500;
+.btn-blue, .btn-info {
+	@apply btn-base bg-blue-600 hover:bg-blue-700 focus:ring-blue-500;
 }
 
-.btn-yellow, .btn-alert{
-	@apply bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500;
+.btn-yellow, .btn-alert {
+	@apply btn-base bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500;
 }

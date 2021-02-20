@@ -4,39 +4,46 @@
 
 /* Add any custom CSS here */
 @import "tailwindcss/utilities";
+@import "./buttons";
 
+.alert-base {
+	@apply px-4 py-2 m-4 flex flex-row flex-wrap justify-between ;
+}
 
-.flash-alert{
-	@apply px-4 py-2;
+.close-flash-btn-base {
+	@apply inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2
+}
+
+.alert-info {
+	@apply alert-base bg-blue-200 text-blue-500 border-blue-500;
+}
+
+.alert-info .close-flash {
+	@apply close-flash-btn-base btn-info;
+}
+
+.alert-success {
+	@apply alert-base bg-green-200 text-green-500 border-green-500;
+}
+
+.alert-success .close-flash {
+	@apply close-flash-btn-base btn-success;
 }
 
 
-.alert-info{
-	@apply bg-blue-200 text-blue-500 border-blue-500;
-}
-.alert-info .close-flash{
-	@apply bg-blue-200 text-blue-500 border-blue-500;
+.alert-error {
+	@apply alert-base bg-red-200 text-red-500 border-red-500;
 }
 
-.alert-success{
-	@apply bg-green-200 text-green-500 border-green-500;
-}
-.alert-success .close-flash{
-	@apply bg-green-200 text-green-500 border-green-500;
+.alert-error .close-flash {
+	@apply close-flash-btn-base btn-error;
 }
 
 
-.alert-error{
-	@apply bg-red-200 text-red-500 border-red-500;
-}
-.alert-error .close-flash{
-	@apply bg-red-200 text-red-500 border-red-500;
+.alert-alert {
+	@apply alert-base bg-yellow-200 text-yellow-500 border-yellow-500;
 }
 
-
-.alert-alert{
-	@apply bg-yellow-200 text-yellow-500 border-yellow-500;
-}
-.alert-alert .close-flash{
-	@apply bg-yellow-200 text-yellow-500 border-yellow-500;
+.alert-alert .close-flash {
+	@apply close-flash-btn-base btn-alert;
 }

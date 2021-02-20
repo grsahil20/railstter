@@ -16,11 +16,11 @@ body {
 }
 
 .body .sidebar {
-	@apply col-span-2 bg-purple-800 h-full;
+	@apply col-span-2 bg-indigo-900 h-full;
 }
 
 .body .main {
-	@apply col-span-10 h-full;
+	@apply col-span-10 h-full bg-gray-100;
 }
 
 .main .header {

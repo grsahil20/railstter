@@ -36,7 +36,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'webpacker'
 gem 'simple_form'
+gem 'simple_form-tailwind'
+
 gem 'slim'
+gem 'pagy', '~> 3.5' # omit patch digit and use the latest if possible
 
 gem 'devise'
 

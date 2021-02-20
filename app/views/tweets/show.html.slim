@@ -1,4 +1,14 @@
-tweet
-	= @tweet.content
-	= link_to 'Edit', [:edit, @tweet], id: "edit"
-	= link_to 'Destroy', [@tweet], id: "destroy", method: :delete
+.well
+	div.tweet
+		h1 = @tweet.content
+		- if @tweet.user == current_user
+			= link_to 'Edit', [:edit, current_user, @tweet], class: 'btn-info edit', id: "edit"
+			= link_to 'Destroy', [current_user, @tweet], id: "destroy", class: 'btn-danger destroy', method: :delete
+
+- if user_signed_in?
+	.well
+		= render 'comments/form', tweet: @tweet, comment: @comment
+
+- if @comments.present?
+	.well#comments
+		= render  'comments/list', comment_pages: @comment_pages, comments: @comments

@@ -7,5 +7,13 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-	resources :tweets
+	resources :tweets do
+    resources :comments, controller: 'tweets/comments', only: :create
+  end
+
+  resources :users, only: [] do
+    resources :tweets, controller: 'users/tweets'
+  end
+
+  mount ActionCable.server => '/cable'
 end

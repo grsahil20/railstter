@@ -1,3 +1,3 @@
-$(document).on("click", "#close-flash", function(e){
-	$('.flash-alert').fadeOut();
+$(document).on("click", "#close-flash", function (e) {
+	$('#flash-alert').fadeOut();
 });
